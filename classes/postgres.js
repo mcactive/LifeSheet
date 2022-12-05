@@ -3,7 +3,10 @@ exports.__esModule = true;
 var Client = require("pg").Client;
 var connectionString = process.env.DATABASE_URL + "?ssl=true";
 var client = new Client({
-    connectionString: connectionString
+    connectionString: connectionString,
+	ssl: {
+    	rejectUnauthorized: false
+	}
 });
 client.connect(function (err, client, done) {
     console.log(err);
