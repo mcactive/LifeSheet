@@ -187,7 +187,7 @@ function updateOverviewTable() {
     console.log(queryToUse);
     postgres.client.query({
         text: queryToUse
-    }, function (err, res) {
+    }, function (err, res) {	    
         lastFetchedData["overviewTable"] = {
             time: moment().format(),
             value: res.rows[0]
@@ -206,5 +206,5 @@ http
     res.write(JSON.stringify(lastFetchedData));
     return res.end();
 })
-    .listen(process.env.PORT);
+    .listen(8080);
 //# sourceMappingURL=web.js.map
