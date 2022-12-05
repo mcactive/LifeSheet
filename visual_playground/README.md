@@ -1,6 +1,6 @@
 # Visual Playground Life Sheet
 
-All the code to visualize the FxLifeSheet data using [Plotly JS](https://plotly.com/javascript/)
+All the code to visualize the LifeSheet data using [Plotly JS](https://plotly.com/javascript/)
 
 ## Dependencies
 
@@ -12,7 +12,7 @@ Create a `.keys` file in the current directory with the following content
 
 ```sh
 export DATABASE_URL="postgresql://[url]"
-export DEFAULT_MIN_DATE="2019-04"
+export DEFAULT_MIN_DATE="2023-01"
 ```
 
 ## Run server
@@ -28,7 +28,7 @@ bundle exec ruby server.rb
 ## Run frontend
 
 ```sh
-cd frontend && python -m SimpleHTTPServer
+cd frontend && python -m http.server
 ```
 
 and open [http://127.0.0.1:8000/frontend.html](http://127.0.0.1:8000/frontend.html)
