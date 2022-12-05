@@ -1,5 +1,6 @@
 .keys
-credentials.json
+app.yaml
+credentials.jsonc
 .DS_STORE
 node_modules
 deprecated_importers/moves/daily
