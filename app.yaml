@@ -1,9 +1,0 @@
-runtime: nodejs16
-
-env_variables:
-  TELEGRAM_BOT_TOKEN: ""
-  TELEGRAM_USER_ID: ""
-  TELEGRAM_CHAT_ID: ""
-  DATABASE_URL: "postgresql://mcactive:3X5z6k70|r>}5q^7@34.173.136.174:5432/mcactive-db"
-  LIFESHEET_JSON_URL: ""
-  PORT: "80"
