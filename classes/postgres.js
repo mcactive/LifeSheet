@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var Client = require("pg").Client;
-var connectionString = process.env.DATABASE_URL + "?ssl=true";
+var connectionString = process.env.HEROKU_POSTGRESQL_RED_URL;
 var client = new Client({
     connectionString: connectionString,
 	ssl: { rejectUnauthorized: false }
