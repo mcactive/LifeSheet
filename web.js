@@ -206,5 +206,5 @@ http
     res.write(JSON.stringify(lastFetchedData));
     return res.end();
 })
-    .listen(8080);
+    .listen(process.env.PORT);
 //# sourceMappingURL=web.js.map
