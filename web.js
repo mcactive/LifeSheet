@@ -6,6 +6,7 @@ const moment = require("moment");
 const postgres = require("./classes/postgres.js");
 const express = require("express");
 const app = express();
+const fs = require("fs");
 
 var lastFetchedData = {};
 
@@ -207,6 +208,12 @@ updateOverviewTable();
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
+
+	res.sendFile(path.join(__dirname+'/views/index.html'));
+
+});
+
+app.get('/api', function (req, res) {
 	res.writeHead(200, {
 	    "Content-Type": "application/json",
 	    "Access-Control-Allow-Origin": "*",
