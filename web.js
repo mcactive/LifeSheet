@@ -209,7 +209,7 @@ app.use(express.static('public'));
 
 app.get('/', function (req, res) {
 
-	res.sendFile(path.join(__dirname+'/views/index.html'));
+	res.sendFile('/views/index.html');
 
 });
 
