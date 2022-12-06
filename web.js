@@ -5,7 +5,7 @@ exports.__esModule = true;
 const moment = require("moment");
 const postgres = require("./classes/postgres.js");
 const express = require("express");
-const app = express.Router();
+const app = express();
 
 var lastFetchedData = {};
 
