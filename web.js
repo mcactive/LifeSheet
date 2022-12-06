@@ -207,11 +207,10 @@ updateOverviewTable();
 
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-
-	res.sendFile('index.html', {root: __dirname . '/views/' });
-
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/views/index.html');
 });
+
 
 app.get('/api', function (req, res) {
 	res.writeHead(200, {
