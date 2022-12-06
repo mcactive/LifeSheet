@@ -1,9 +1,14 @@
 "use strict";
+
 exports.__esModule = true;
-var http = require("http");
-var moment = require("moment");
-var postgres = require("./classes/postgres.js");
+
+const moment = require("moment");
+const postgres = require("./classes/postgres.js");
+const express = require("express");
+const app = express.Router();
+
 var lastFetchedData = {};
+
 function loadCurrentData(key) {
     console.log("Refreshing latest " + key + " entry...");
     var query;
@@ -33,7 +38,9 @@ function loadCurrentData(key) {
         }
     });
 }
+
 console.log("Launching up API web server...");
+
 var interval = 5 * 60 * 1000;
 var keys = [
     "mood",
@@ -196,15 +203,25 @@ function updateOverviewTable() {
 }
 setInterval(updateOverviewTable, 60 * 60 * 1000);
 updateOverviewTable();
-http
-    .createServer(function (req, res) {
-    res.writeHead(200, {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
-    });
-    res.write(JSON.stringify(lastFetchedData));
-    return res.end();
-})
-    .listen(process.env.PORT);
+
+app.use(express.static('public'));
+
+app.get('/', function (req, res) {
+	res.writeHead(200, {
+	    "Content-Type": "application/json",
+	    "Access-Control-Allow-Origin": "*",
+	    "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+	});
+	res.write(JSON.stringify(lastFetchedData));
+	res.end();
+
+});
+
+app.use(function(req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
+});
+
+app.listen(process.env.PORT);
+
 //# sourceMappingURL=web.js.map
