@@ -9,7 +9,7 @@
         "scheduler": "node scheduler.js"
     },
     "dependencies": {
-        "express": "^4.18.2",
+        "express": "^4.19.2",
         "fs": "^0.0.1-security",
         "moment": "^2.24.0",
         "needle": "^2.3.3",
